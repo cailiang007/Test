@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<constant name="struts.devMode" value="turn"></constant>
+	<constant name="struts.multipart.maxSize" value="20971520"></constant>
+	<package name="default" namespace="/" extends="struts-default">
+	
+	    <action name="up" class="cn.itheima.action.UploadAction" method="uploadFile">
+	      <result name="input">/error.jsp</result>
+	      <interceptor-ref name="fileUpload">
+	            <!--  <param name="maximumSize"></param>
+	             <param name="allowedTypes"></param> -->
+	             <param name="allowedExtensions">bmp,txt</param>
+	      </interceptor-ref>
+	      <interceptor-ref name="defaultStack"/>
+	    </action>
+	    
+	     <action name="upMany" class="cn.itheima.action.UploadManyAction2" method="uploadFile">
+	      <result name="input">/error.jsp</result>
+	     
+	    </action>
+         
+	</package>
+
+
+
+
+
+</struts>
